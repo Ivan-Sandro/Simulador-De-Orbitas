@@ -1,0 +1,2 @@
+# Simulador-De-Orbitas
+Esse projeto foi criado para que o usuário possa criar suas próprias simulações de órbitas em um plano 2D, depois se desejar salvar em um arquivo de texto onde o próprio usuário possa modificar a configuração pelo próprio arquivo, em atualizações futuras, pretendo permitir que o usuário modifique as configurações durante a execução do programa pela própria janela gráfica. Esse programa utiliza o Allegro5.0.
