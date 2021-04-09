@@ -1,0 +1,16 @@
+LUGAR X.......: 3
+LUGAR Y.......: 3
+VELOCIDADE X..: 0.0
+VELOCIDADE Y..: 0.0
+MASSA.........: 1256
+VOLUME........: 1256
+DENSIDADE.....: 1
+====================================>>>
+LUGAR X.......: 60
+LUGAR Y.......: 30
+VELOCIDADE X..: 0.5
+VELOCIDADE Y..: -1.25
+MASSA.........: 314
+VOLUME........: 314
+DENSIDADE.....: 1
+====================================>>>
