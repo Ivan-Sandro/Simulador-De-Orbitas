@@ -1,15 +1,10 @@
 #include <iostream>
-#include <ctime>
-#include <cmath>
 #include <vector>
-#include <cstring>
-#include <locale>
-#include <fstream>
 
 using namespace std;
 
-#include "Corpos.h"
-#include "Funções painel primário.cpp"
+#include "Headers/Corpos.h"
+#include "Headers/Painel_prompt.h"
 
 int main()
 {
@@ -54,7 +49,15 @@ int main()
         break;
     }
 
+    // TEMPORARIO, apenas para mostrar a configuração enquanto continuo o código
 
+    for(size_t X = 0 ; X < Planetas.size() ; X++)
+        Planetas[X]._Printar();
+
+    cout << endl << endl;
+    system("pause");
+
+    //===========================================================
 
     do
     {
