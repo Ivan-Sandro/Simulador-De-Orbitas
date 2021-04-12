@@ -5,6 +5,7 @@ using namespace std;
 
 #include "Headers/Corpos.h"
 #include "Headers/Painel_prompt.h"
+#include "Headers/Sistema_Allegro5.0.h"
 
 int main()
 {
@@ -23,6 +24,7 @@ int main()
         cout << "# ";
         cin >> Resposta_Usuario;
         fflush(stdin);
+        
     }while(Resposta_Usuario < 1 || Resposta_Usuario > 2);
 
     switch(Resposta_Usuario)
@@ -36,7 +38,6 @@ int main()
             getline(cin, Nome_do_Arquivo_Salvo);
 
             Planetas = _Get_Planetas_Salvos(Nome_do_Arquivo_Salvo);
-
         }
         break;
 
@@ -49,15 +50,37 @@ int main()
         break;
     }
 
-    // TEMPORARIO, apenas para mostrar a configuração enquanto continuo o código
-
     for(size_t X = 0 ; X < Planetas.size() ; X++)
-        Planetas[X]._Printar();
+                Planetas[X]._Printar();
 
-    cout << endl << endl;
-    system("pause");
+    _Iniciar_Sistema_Allegro();
 
-    //===========================================================
+    ALLEGRO_EVENT evento;
+    DISPLAY Painel;
+
+    Painel._Criar_Sistema_Allegro();
+    Painel._Registrar_Eventos();
+
+    bool Sair_Programa = false;
+
+    do
+    {
+        al_wait_for_event(Painel._Get_Event_Queue(), &evento);
+
+        switch(evento.type)
+        {
+            case ALLEGRO_EVENT_DISPLAY_CLOSE:
+                Sair_Programa = true;
+            break;
+
+            case ALLEGRO_EVENT_TIMER:
+
+            break;
+        }
+
+    }while(Sair_Programa != true);
+
+    Painel._Destuir_Sistema_Allegro();
 
     do
     {
@@ -68,9 +91,11 @@ int main()
         cout << "# ";
         cin >> Resposta_Usuario;
         fflush(stdin);
+        
     }while(Resposta_Usuario < 1 || Resposta_Usuario > 2);
 
     if(Resposta_Usuario == 1){
+        
         string Nome_do_Arquivo_a_Ser_Criado;
         cout << endl << endl;
         cout << "-> Criando arquivo de texto na pasta do executável." << std::endl << std::endl;
