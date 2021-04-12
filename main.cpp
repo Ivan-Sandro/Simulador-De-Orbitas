@@ -41,7 +41,6 @@ int main()
         }
         break;
 
-
         case 2:
         {
             std::cout << " -> Criando uma configuração. . ." << std::endl << std::endl;
@@ -50,8 +49,7 @@ int main()
         break;
     }
 
-    for(size_t X = 0 ; X < Planetas.size() ; X++)
-                Planetas[X]._Printar();
+    for(size_t X = 0 ; X < Planetas.size() ; X++) Planetas[X]._Printar();
 
     _Iniciar_Sistema_Allegro();
 
