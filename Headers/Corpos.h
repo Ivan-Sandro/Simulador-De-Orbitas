@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include <allegro5/allegro.h>
+
 class CORPO{
     private:
         int     X         = 0, Y      = 0;
@@ -13,19 +15,23 @@ class CORPO{
         float   Raio      = 0;
         float   Volume    = 0;
         float   Densidade = 0;
+    
+        ALLEGRO_COLOR Cor = al_map_rgb( 0, 0, 0);
 
     public:
-        int     _Get_X          (void);
-        int     _Get_Y          (void);
+        float   _Get_X          (void);
+        float   _Get_Y          (void);
         float   _Get_Massa      (void);
         float   _Get_Raio       (void);
         float   _Get_Vel_X      (void);
         float   _Get_Vel_Y      (void);
         float   _Get_Volume     (void);
         float   _Get_Densidade  (void);
+    
+        ALLEGRO_COLOR _Get_Cor  (void);
 
-        void _Push_Pos_X            (int PX);
-        void _Push_Pos_Y            (int PY);
+        void _Push_Pos_X            (float PX);
+        void _Push_Pos_Y            (float PY);
 
         void _Push_Vel_X            (float PVel_X);
         void _Push_Vel_Y            (float PVel_Y);
