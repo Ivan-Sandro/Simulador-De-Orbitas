@@ -26,7 +26,7 @@ class DISPLAY{
         void _Push_FPS  (unsigned short int PFPS);
 
         void _Atualizar_Tamanho_Display (unsigned int Largura, unsigned int Altura);
-        void _Registrar_Eventos     (void);
+        void _Registrar_Eventos         (void);
 
         bool _Criar_Sistema_Allegro     (void);
         void _Destuir_Sistema_Allegro   (void);
