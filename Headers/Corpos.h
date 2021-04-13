@@ -1,6 +1,12 @@
 #ifndef CORPOS_H_INCLUDED
 #define CORPOS_H_INCLUDED
 
+/**************************************
+*
+*   Biblioteca da classe e funções importantes dos Planetas que nós teremos durante a simulação ( Corpos )
+*
+***************************************/
+
 #include <cmath>
 #include <iostream>
 #include <fstream>
