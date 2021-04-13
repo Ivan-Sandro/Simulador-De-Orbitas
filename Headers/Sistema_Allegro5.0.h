@@ -1,6 +1,14 @@
 #ifndef SISTEMA_ALLEGRO5_0_H_INCLUDED
 #define SISTEMA_ALLEGRO5_0_H_INCLUDED
 
+/*****************************************************
+*
+*   Biblioteca que carrega o sistema do Allegro 
+*   Classe Display guarda os ponteiros do Allegro que instalamos e criamos.
+*   Facilitando o uso do Allegro até para outros programas.
+*
+******************************************************/
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
