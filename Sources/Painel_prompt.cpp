@@ -64,13 +64,13 @@ vector <CORPO> _Get_Planetas_Salvos(string Nome_Do_Arquivo){
                     Planeta_alocador._Push_Raio_com_Volume(Planeta_alocador._Get_Volume());
                 break;
             }
-
+            
+            Posisao_Lida_Arquivo++;
+            
         }else{
             Planetas.push_back(Planeta_alocador);
             Posisao_Lida_Arquivo = 0;
         }
-
-        Posisao_Lida_Arquivo++;
     }
     Arquivo.close();
 
@@ -86,12 +86,12 @@ void _Push_Informasoes_EXTRAS_Nao_Salvos(CORPO &Planeta_Alocador){
     {
         fflush(stdin);
         cout << endl << endl;
-        cout << "##Deseja dar informações extras para melhor precisão geral do programa?[V/D/N]##";
+        cout << "##Deseja dar informaÃ§Ãµes extras para melhor precisÃ£o geral do programa?[V/D/N]##";
         cout << endl;
 
         cout << "# V -> Informar o VOLUME" << endl;
         cout << "# D -> Informar a DENSIDADE" << endl;
-        cout << "# N -> Não fornecer informações extras" << endl;
+        cout << "# N -> NÃ£o fornecer informaÃ§Ãµes extras" << endl;
         cout << endl << "# ";
 
         cin >> Char_Escolhas;
@@ -145,7 +145,7 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
     CORPO Planeta_Alocador;
 
     cout << endl << endl;
-    cout << "<<<==== Defina as informações dos planetas ====>>>" << endl << endl;
+    cout << "<<<==== Defina as informaÃ§Ãµes dos planetas ====>>>" << endl << endl;
 
     do
     {
