@@ -1,10 +1,13 @@
-LUGAR X.......: 3
-LUGAR Y.......: 3
+LUGAR X.......: 360
+LUGAR Y.......: 360
 VELOCIDADE X..: 0.0
 VELOCIDADE Y..: 0.0
-MASSA.........: 1256
-VOLUME........: 1256
+MASSA.........: 50000
+VOLUME........: 50000
 DENSIDADE.....: 1
+COR VERMELHO..:	255
+COR VERDE.....: 0
+COR AZUL......: 0
 ====================================>>>
 LUGAR X.......: 60
 LUGAR Y.......: 30
@@ -13,4 +16,7 @@ VELOCIDADE Y..: -1.25
 MASSA.........: 314
 VOLUME........: 314
 DENSIDADE.....: 1
+COR VERMELHO..:	0
+COR VERDE.....: 255
+COR AZUL......: 0
 ====================================>>>
