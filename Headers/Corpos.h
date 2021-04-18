@@ -11,30 +11,32 @@
 #include <iostream>
 #include <fstream>
 
-#include <allegro5/allegro.h>
-
 class CORPO{
     private:
-        int     X         = 0, Y      = 0;
+        float   X         = 0, Y      = 0;
         float   Vel_X     = 0, Vel_Y  = 0;
         float   Massa     = 0;
         float   Raio      = 0;
         float   Volume    = 0;
         float   Densidade = 0;
-    
-        ALLEGRO_COLOR Cor = al_map_rgb( 0, 0, 0);
+
+        unsigned char Cor_R = 0;
+        unsigned char Cor_G = 0;
+        unsigned char Cor_B = 0;
 
     public:
-        float   _Get_X          (void);
-        float   _Get_Y          (void);
+        float   _Get_Pos_X      (void);
+        float   _Get_Pos_Y      (void);
         float   _Get_Massa      (void);
         float   _Get_Raio       (void);
         float   _Get_Vel_X      (void);
         float   _Get_Vel_Y      (void);
         float   _Get_Volume     (void);
         float   _Get_Densidade  (void);
-    
-        ALLEGRO_COLOR _Get_Cor  (void);
+
+        unsigned char _Get_Cor_R  (void);
+        unsigned char _Get_Cor_G  (void);
+        unsigned char _Get_Cor_B  (void);
 
         void _Push_Pos_X            (float PX);
         void _Push_Pos_Y            (float PY);
@@ -46,6 +48,12 @@ class CORPO{
         void _Push_Raio             (float PRaio);
         void _Push_Volume           (float PVolume);
         void _Push_Densidade        (float PDensidade);
+
+        void _Push_Cor_R            (unsigned char Pigmento);
+        void _Push_Cor_G            (unsigned char Pigmento);
+        void _Push_Cor_B            (unsigned char Pigmento);
+
+        void _Push_Cores            (unsigned char R, unsigned char G, unsigned char B);
 
         void _Push_Raio_com_Volume  (float PVolume);
 
