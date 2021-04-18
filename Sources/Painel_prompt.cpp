@@ -49,22 +49,29 @@ vector <CORPO> _Get_Planetas_Salvos(string Nome_Do_Arquivo){
 
                 case 4:
                     Planeta_alocador._Push_Massa(Numero_convertido);
-                    Planeta_alocador._Push_Raio_com_Volume(Numero_convertido);
                 break;
 
                 case 5:
                     Planeta_alocador._Push_Volume(Numero_convertido);
-                    Planeta_alocador._Push_Densidade(Planeta_alocador._Get_Massa()/Planeta_alocador._Get_Volume());
                     Planeta_alocador._Push_Raio_com_Volume(Numero_convertido);
                 break;
 
                 case 6:
                     Planeta_alocador._Push_Densidade(Numero_convertido);
-                    Planeta_alocador._Push_Volume(Planeta_alocador._Get_Massa()/Planeta_alocador._Get_Densidade());
-                    Planeta_alocador._Push_Raio_com_Volume(Planeta_alocador._Get_Volume());
                 break;
+                    
+                case 7:
+                    Planeta_alocador._Push_Cor_R(Numero_convertido);
+                break;
+
+                case 8:
+                    Planeta_alocador._Push_Cor_G(Numero_convertido);
+                break;
+
+                case 9:
+                    Planeta_alocador._Push_Cor_B(Numero_convertido);
+                break;            
             }
-            
             Posisao_Lida_Arquivo++;
             
         }else{
@@ -141,7 +148,10 @@ void _Push_Informasoes_EXTRAS_Nao_Salvos(CORPO &Planeta_Alocador){
 vector <CORPO> _Push_Planetas_Nao_Salvos(void){
     vector <CORPO> Planetas;
     char Char_Escolhas;
+    
     float Imput;
+    unsigned char Cores;
+    
     CORPO Planeta_Alocador;
 
     cout << endl << endl;
@@ -175,6 +185,21 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
         Planeta_Alocador._Push_Massa(Imput);
 
         _Push_Informasoes_EXTRAS_Nao_Salvos(Planeta_Alocador);
+        
+        cout << "COR VERMELHO..: ";
+        cin >> Cores;
+        fflush(stdin);
+        Planeta_Alocador._Push_Cor_R(Cores);
+
+        cout << "COR VERDE.....: ";
+        cin >> Cores;
+        fflush(stdin);
+        Planeta_Alocador._Push_Cor_G(Cores);
+
+        cout << "COR AZUL......: ";
+        cin >> Cores;
+        fflush(stdin);
+        Planeta_Alocador._Push_Cor_B(Cores);
 
         Planetas.push_back(Planeta_Alocador);
         Planeta_Alocador._Zerar();
