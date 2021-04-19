@@ -150,7 +150,6 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
     char Char_Escolhas;
     
     float Imput;
-    unsigned char Cores;
     
     CORPO Planeta_Alocador;
 
@@ -187,19 +186,19 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
         _Push_Informasoes_EXTRAS_Nao_Salvos(Planeta_Alocador);
         
         cout << "COR VERMELHO..: ";
-        cin >> Cores;
+        cin >> Imput;
         fflush(stdin);
-        Planeta_Alocador._Push_Cor_R(Cores);
+        Planeta_Alocador._Push_Cor_R(Imput);
 
         cout << "COR VERDE.....: ";
-        cin >> Cores;
+        cin >> Imput;
         fflush(stdin);
-        Planeta_Alocador._Push_Cor_G(Cores);
+        Planeta_Alocador._Push_Cor_G(Imput);
 
         cout << "COR AZUL......: ";
-        cin >> Cores;
+        cin >> Imput;
         fflush(stdin);
-        Planeta_Alocador._Push_Cor_B(Cores);
+        Planeta_Alocador._Push_Cor_B(Imput);
 
         Planetas.push_back(Planeta_Alocador);
         Planeta_Alocador._Zerar();
