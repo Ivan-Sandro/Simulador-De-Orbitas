@@ -5,13 +5,8 @@ float _Calcular_Distancia_Entre_Corpos(CORPO Planeta_1, CORPO Planeta_2){
 
     float Distancia_X = Planeta_1._Get_Pos_X() - Planeta_2._Get_Pos_X();
     float Distancia_Y = Planeta_1._Get_Pos_Y() - Planeta_2._Get_Pos_Y();
-
-    float Distancia_Planetas = sqrt((Distancia_X * Distancia_X) + (Distancia_Y * Distancia_Y));
-
-    if(Distancia_Planetas < Planeta_1._Get_Raio() + Planeta_2._Get_Raio())
-        return Planeta_1._Get_Raio() + Planeta_2._Get_Raio();
-    else
-        return Distancia_Planetas;
+    
+    return sqrt((Distancia_X * Distancia_X) + (Distancia_Y * Distancia_Y));
 }
 
 bool _Colisao_Circulos(float Raio_Corpo_1, float Raio_Corpo_2, float Distancia_Corpos){
