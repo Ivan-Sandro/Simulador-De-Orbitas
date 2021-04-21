@@ -1,0 +1,24 @@
+LUGAR X.......: 360
+LUGAR Y.......: 360
+VELOCIDADE X..: 0,0
+VELOCIDADE Y..: 0,0
+MASSA.........: 100000
+VOLUME........: 100000
+DENSIDADE.....: 1
+COR VERMELHO..:	255
+COR VERDE.....: 0
+COR AZUL......: 0
+ELASTICIDADE..: 0,5
+====================================>>>
+LUGAR X.......: 100
+LUGAR Y.......: 360
+VELOCIDADE X..: 0,0
+VELOCIDADE Y..: 0,0
+MASSA.........: 1000
+VOLUME........: 1000
+DENSIDADE.....: 1
+COR VERMELHO..:	0
+COR VERDE.....: 255
+COR AZUL......: 0
+ELASTICIDADE..: 0,5
+====================================>>>
