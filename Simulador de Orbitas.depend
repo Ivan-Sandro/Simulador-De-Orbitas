@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	"Headers/Corpos.h"
+	"Headers/Painel_prompt.h"
+	"Headers/Sistema_Allegro5.0.h"
+	"Headers/Fisica.h"
+	"Headers/Desenhos_Allegro5.0.h"
+
+1620141605 c:\meus arquivos\scripts\c-c++\simulador de orbitas\headers\corpos.h
+	<cmath>
+	<iostream>
+	<fstream>
+
+1620141605 c:\meus arquivos\scripts\c-c++\simulador de orbitas\headers\painel_prompt.h
+	<conio.h>
+	<vector>
+	<cstring>
+	"..\Headers\Corpos.h"
+
+1620141605 c:\meus arquivos\scripts\c-c++\simulador de orbitas\headers\sistema_allegro5.0.h
+	<conio.h>
+	<fstream>
+	<cstring>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+
+1620141605 c:\meus arquivos\scripts\c-c++\simulador de orbitas\headers\fisica.h
+	<vector>
+	"../Headers/Corpos.h"
+
+1620141605 c:\meus arquivos\scripts\c-c++\simulador de orbitas\headers\desenhos_allegro5.0.h
+	"../Headers/Corpos.h"
+	<allegro5/allegro_primitives.h>
+
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\sources\corpos.cpp
+	"..\Headers\Corpos.h"
+
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\sources\desenhos_allegro5.0.cpp
+	"../Headers/Desenhos_Allegro5.0.h"
+
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\sources\fisica.cpp
+	"../Headers/Fisica.h"
+
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\sources\painel_prompt.cpp
+	"../Headers/Painel_prompt.h"
+
+1620141605 source:c:\meus arquivos\scripts\c-c++\simulador de orbitas\sources\sistema_allegro5.0.cpp
+	"../Headers/Sistema_Allegro5.0.h"
+
