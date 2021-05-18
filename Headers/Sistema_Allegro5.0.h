@@ -43,7 +43,7 @@ class DISPLAY{
         bool _Criar_Sistema_Allegro         (void);
         void _Destuir_Sistema_Allegro       (void);
         void _Get_Configurasao_Sistema      (void);
-        void _Criar_Configurasao_Sistema    (void);
+        void _Push_Configurasao_Sistema     (void);
 };
 
 
