@@ -100,12 +100,12 @@ void _Push_Informasoes_EXTRAS_Nao_Salvos(CORPO &Planeta_Alocador){
     {
         fflush(stdin);
         cout << endl << endl;
-        cout << "##Deseja dar informações extras para melhor precisão geral do programa?[V/D/N]##";
+        cout << "##Deseja dar informaÃ§Ãµes extras para melhor precisÃ£o geral do programa?[V/D/N]##";
         cout << endl;
 
         cout << "# V -> Informar o VOLUME" << endl;
         cout << "# D -> Informar a DENSIDADE" << endl;
-        cout << "# N -> Não fornecer informações extras" << endl;
+        cout << "# N -> NÃ£o fornecer informaÃ§Ãµes extras" << endl;
         cout << endl << "# ";
 
         cin >> Char_Escolhas;
@@ -157,59 +157,73 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
     char Char_Escolhas;
     float Imput;
 
+    const char *Valores_Name[9] = {"LUGAR X.......: ",
+                                   "LUGAR Y.......: ",
+                                   "VELOCIDADE X..: ",
+                                   "VELOCIDADE Y..: ",
+                                   "MASSA.........: ",
+                                   "COR VERMELHO..: ",
+                                   "COR VERDE.....: ",
+                                   "COR AZUL......: ",
+                                   "ELASTICIDADE..: "};
+
     CORPO Planeta_Alocador;
 
     cout << endl << endl;
-    cout << "<<<==== Defina as informações dos planetas ====>>>" << endl << endl;
+    cout << "<<<==== Defina as informaÃ§Ãµes dos planetas ====>>>" << endl << endl;
 
     do
     {
-        cout << "LUGAR X.......: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Pos_X(Imput);
+        for(unsigned short int Fileira = 0 ; Fileira < 9 ; Fileira++)
+        {
+            do
+            {
+                cout << Valores_Name[Fileira];
+                cin >> Imput;
+                fflush(stdin);
+            }while(!isdigit(Imput));
 
-        cout << "LUGAR Y.......: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Pos_Y(Imput);
+            switch(Fileira)
+            {
+                case 0:
+                    Planeta_Alocador._Push_Pos_X(Imput);
+                break;
 
-        cout << "VELOCIDADE X..: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Vel_X(Imput);
+                case 1:
+                    Planeta_Alocador._Push_Pos_Y(Imput);
+                break;
 
-        cout << "VELOCIDADE Y..: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Vel_Y(Imput);
+                case 2:
+                    Planeta_Alocador._Push_Vel_X(Imput);
+                break;
 
-        cout << "MASSA.........: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Massa(Imput);
+                case 3:
+                    Planeta_Alocador._Push_Vel_Y(Imput);
+                break;
+
+                case 4:
+                    Planeta_Alocador._Push_Massa(Imput);
+                break;
+
+                case 5:
+                    Planeta_Alocador._Push_Cor_R(Imput);
+                break;
+
+                case 6:
+                    Planeta_Alocador._Push_Cor_G(Imput);
+                break;
+
+                case 7:
+                    Planeta_Alocador._Push_Cor_B(Imput);
+                break;
+
+                case 8:
+                    Planeta_Alocador._Push_Elasticidade(Imput);
+                break;
+            }
+        }
 
         _Push_Informasoes_EXTRAS_Nao_Salvos(Planeta_Alocador);
-
-        cout << "COR VERMELHO..: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Cor_R(Imput);
-
-        cout << "COR VERDE.....: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Cor_G(Imput);
-
-        cout << "COR AZUL......: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Cor_B(Imput);
-
-        cout << "ELASTICIDADE..: ";
-        cin >> Imput;
-        fflush(stdin);
-        Planeta_Alocador._Push_Elasticidade(Imput);
 
         Planetas.push_back(Planeta_Alocador);
         Planeta_Alocador._Zerar();
