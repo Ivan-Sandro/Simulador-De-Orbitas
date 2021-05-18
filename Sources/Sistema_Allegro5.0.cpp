@@ -101,6 +101,17 @@ void DISPLAY::_Get_Configurasao_Sistema(void){
         }
     }
 }
+void DISPLAY::_Push_Configurasao_Sistema(void){
+    ofstream Arquivo_Configurasao;
+
+    Arquivo_Configurasao.open("AJUSTES.txt");
+
+    Arquivo_Configurasao << "FPS...........: " << FPS;
+    Arquivo_Configurasao << "LARGURA TELA..: " << Largura_Tela;
+    Arquivo_Configurasao << "ALTURA TELA...: " << Altura_Tela;
+
+    Arquivo_Configurasao.close();
+}
 
 bool _Iniciar_Sistema_Allegro(void){
 
