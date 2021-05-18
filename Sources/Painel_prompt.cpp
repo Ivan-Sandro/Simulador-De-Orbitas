@@ -176,12 +176,10 @@ vector <CORPO> _Push_Planetas_Nao_Salvos(void){
     {
         for(unsigned short int Fileira = 0 ; Fileira < 9 ; Fileira++)
         {
-            do
-            {
-                cout << Valores_Name[Fileira];
-                cin >> Imput;
-                fflush(stdin);
-            }while(!isdigit(Imput));
+            cout << Valores_Name[Fileira];
+            cin >> Imput;
+            cin.clear();
+            fflush(stdin);
 
             switch(Fileira)
             {
