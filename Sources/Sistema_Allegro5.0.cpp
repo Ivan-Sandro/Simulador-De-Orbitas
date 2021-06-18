@@ -9,8 +9,6 @@ ALLEGRO_TIMER*        DISPLAY::_Get_Timer           (void){ return Timer;       
 
 unsigned short int    DISPLAY::_Get_FPS             (void){ return FPS;             }
 
-unsigned int          DISPLAY::_Get_Largura_Tela    (void){ return Largura_Tela;    }
-unsigned int          DISPLAY::_Get_Altura_Tela     (void){ return Altura_Tela;     }
 
 void _Erro_Box(const char* txt){
     al_show_native_message_box(NULL, "ERROR", "Ocorreu o seguinte erro:", txt, NULL, ALLEGRO_MESSAGEBOX_ERROR);
@@ -19,12 +17,10 @@ void _Erro_Box(const char* txt){
 void    DISPLAY::_Push_FPS  (unsigned short int PFPS){ FPS = PFPS; }
 
 void DISPLAY::_Atualizar_Tamanho_Display (unsigned int Largura, unsigned int Altura){
-    Largura_Tela = Largura;
-    Altura_Tela = Altura;
     al_resize_display(Janela, Largura, Altura);
 }
 
-bool DISPLAY::_Criar_Sistema_Allegro(void){
+bool DISPLAY::_Criar_Sistema_Allegro(int Largura_Tela, int Altura_Tela){
 
     Janela = al_create_display(Largura_Tela, Altura_Tela);
     if(!Janela){
@@ -90,27 +86,16 @@ void DISPLAY::_Get_Configurasao_Sistema(void){
                 break;
 
                 case 1:
-                    Largura_Tela = Numero_Convertido;
+                    al_resize_display(DISPLAY::_Get_Display(), Numero_Convertido, al_get_display_height(DISPLAY::_Get_Display()));
                 break;
 
                 case 2:
-                    Altura_Tela = Numero_Convertido;
+                    al_resize_display(DISPLAY::_Get_Display(), al_get_display_width(DISPLAY::_Get_Display()), Numero_Convertido);
                 break;
             }
             Posisao_Lida_Arquivo++;
         }
     }
-}
-void DISPLAY::_Push_Configurasao_Sistema(void){
-    ofstream Arquivo_Configurasao;
-
-    Arquivo_Configurasao.open("AJUSTES.txt");
-
-    Arquivo_Configurasao << "FPS...........: " << FPS;
-    Arquivo_Configurasao << "LARGURA TELA..: " << Largura_Tela;
-    Arquivo_Configurasao << "ALTURA TELA...: " << Altura_Tela;
-
-    Arquivo_Configurasao.close();
 }
 
 bool _Iniciar_Sistema_Allegro(void){

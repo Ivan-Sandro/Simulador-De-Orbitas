@@ -3,8 +3,8 @@
 
 /*****************************************************************
 *
-*   Biblioteca respons√°vel pelas fun√ß√µes que envolvem o painel do programa, o seu prompt
-*   incluindo as decis√µes como salvar a configura√ß√£o em um arquivo de texto.
+*   Biblioteca respons·vel pelas funÁıes que envolvem o painel do programa, o seu prompt
+*   incluindo as decisıes como salvar a configuraÁ„o em um arquivo de texto.
 *
 ******************************************************************/
 

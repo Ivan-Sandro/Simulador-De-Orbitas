@@ -1,4 +1,5 @@
 #include <iostream>
+#include <clocale>
 #include <vector>
 #include <string>
 
@@ -9,6 +10,7 @@ using namespace std;
 #include "Headers/Sistema_Allegro5.0.h"
 #include "Headers/Fisica.h"
 #include "Headers/Desenhos_Allegro5.0.h"
+#include "Headers/Mouse.h"
 
 int main()
 {
@@ -18,20 +20,18 @@ int main()
 
     ALLEGRO_EVENT evento;
     DISPLAY Painel;
-    Painel._Get_Configurasao_Sistema();
-
-    _Ajustar_Velocidades_Iniciais_Ao_FPS(Painel._Get_FPS(), Planetas);
 
     int Resposta_Usuario = 0;
 
     do
     {
         system("cls");
-        cout << "<<<==== Selecione a op√ß√£o que voc√™ deseja prosseguir ====>>>" << endl;
-        cout << "# 1 -> Ler configura√ß√£o salva." << endl;
-        cout << "# 2 -> Criar configura√ß√£o nova." << endl << endl;
+        cout << "<<<==== Selecione a opÁ„o que vocÍ deseja prosseguir ====>>>" << endl;
+        cout << "# 1 -> Ler configuraÁ„o salva." << endl;
+        cout << "# 2 -> Criar configuraÁ„o nova." << endl << endl;
         cout << "# ";
         cin >> Resposta_Usuario;
+        cin.clear();
         fflush(stdin);
     }while(Resposta_Usuario < 1 || Resposta_Usuario > 2);
 
@@ -40,7 +40,7 @@ int main()
         case 1:
         {
             string Nome_do_Arquivo_Salvo;
-            cout << " -> Lendo configura√ß√£o salva. . ." << endl << endl;
+            cout << " -> Lendo configuraÁ„o salva. . ." << endl << endl;
             cout << ". . .| Por favor, digite o nome do arquivo de texto |. . ." << endl << endl;
             cout << "# ";
             getline(cin, Nome_do_Arquivo_Salvo);
@@ -52,7 +52,7 @@ int main()
 
         case 2:
         {
-            cout << " -> Criando uma configura√ß√£o. . ." << endl << endl;
+            cout << " -> Criando uma configuraÁ„o. . ." << endl << endl;
             Planetas = _Push_Planetas_Nao_Salvos();
         }
         break;
@@ -64,12 +64,17 @@ int main()
     _Iniciar_Sistema_Allegro();
 
 
-    Painel._Criar_Sistema_Allegro();
+    Painel._Criar_Sistema_Allegro(1080, 720);
+    Painel._Get_Configurasao_Sistema();
     Painel._Registrar_Eventos();
 
-    al_start_timer(Painel._Get_Timer());
-
+    unsigned char Segurando_clique = 0;
     bool Sair_Programa = false;
+
+    long int Camera_Pos_X = 0;
+    long int Camera_Pos_Y = 0;
+
+    al_start_timer(Painel._Get_Timer());
 
     do
     {
@@ -81,13 +86,25 @@ int main()
                 Sair_Programa = true;
             break;
 
+            case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
+                Segurando_clique = 1;
+            break;
+
+            case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
+                Segurando_clique = 0;
+            break;
+
+            case ALLEGRO_EVENT_MOUSE_AXES:
+                _Mover_Camera(Segurando_clique, Camera_Pos_X, Camera_Pos_Y, evento);
+            break;
+
             case ALLEGRO_EVENT_TIMER:
 
                 for(size_t X = 0 ; X < Planetas.size() -1 ; X++){
                     for(size_t Y = 1 ; Y < Planetas.size(); Y++){
                         if(Y > X)
                         {
-                            _Calcular_Velocidade_XY_Corpos(Painel._Get_FPS(),Planetas[X], Planetas[Y], _Calcular_Gravidade_Corpos(Planetas[X]._Get_Massa(), Planetas[Y]._Get_Massa(), _Calcular_Distancia_Entre_Corpos(Planetas[X], Planetas[Y])));
+                            _Calcular_Velocidade_XY_Corpos(Painel._Get_FPS(),Planetas[X], Planetas[Y], _Calcular_Gravidade_Corpos(Planetas[X]._Get_Massa(), Planetas[Y]._Get_Massa(), _Calcular_Distancia_Entre_Corpos(Planetas[X], Planetas[Y]))/ Painel._Get_FPS());
                             if(_Colisao_Circulos(Planetas[X]._Get_Raio(), Planetas[Y]._Get_Raio(), _Calcular_Distancia_Entre_Corpos(Planetas[X], Planetas[Y])) == true)
                             {
                                 _Calcular_Impacto(Planetas[X], Planetas[Y]);
@@ -97,13 +114,14 @@ int main()
                 }
 
                 for(size_t X = 0 ; X < Planetas.size() ; X++){
-                    Planetas[X]._Push_Pos_X(Planetas[X]._Get_Pos_X() + Planetas[X]._Get_Vel_X() / Painel._Get_FPS());
-                    Planetas[X]._Push_Pos_Y(Planetas[X]._Get_Pos_Y() + Planetas[X]._Get_Vel_Y() / Painel._Get_FPS());
+                    Planetas[X]._Push_Pos_X(Planetas[X]._Get_Pos_X() + Planetas[X]._Get_Vel_X()/Painel._Get_FPS());
+                    Planetas[X]._Push_Pos_Y(Planetas[X]._Get_Pos_Y() + Planetas[X]._Get_Vel_Y()/Painel._Get_FPS());
                 }
 
                 al_clear_to_color(al_map_rgb(0, 0, 0));
-                    for(size_t X = 0 ; X < Planetas.size() ; X++)_Desenhar_Corpo(Planetas[X]);
+                    for(size_t X = 0 ; X < Planetas.size() ; X++)_Desenhar_Corpo(Planetas[X], Camera_Pos_X, Camera_Pos_Y);
                 al_flip_display();
+
             break;
         }
 
@@ -116,7 +134,7 @@ int main()
         system("cls");
         cout << "<<<==== Deseja salvar os planetas utilizados?[S/N] ====>>>" << endl;
         cout << "# 1 -> Sim." << endl;
-        cout << "# 2 -> N√£o." << endl << endl;
+        cout << "# 2 -> N„o." << endl << endl;
         cout << "# ";
         cin >> Resposta_Usuario;
         fflush(stdin);
@@ -125,7 +143,7 @@ int main()
     if(Resposta_Usuario == 1){
         string Nome_do_Arquivo_a_Ser_Criado;
         cout << endl << endl;
-        cout << "-> Criando arquivo de texto na pasta do execut√°vel." << endl << endl;
+        cout << "-> Criando arquivo de texto na pasta do execut·vel." << endl << endl;
         cout << ". . .| Por favor, digite o nome do arquivo de texto |. . ." << endl << endl;
         cout << "# ";
         getline(cin, Nome_do_Arquivo_a_Ser_Criado);

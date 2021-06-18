@@ -32,6 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Headers/Corpos.h" />
+		<Unit filename="Headers/Desenhos_Allegro5.0.h" />
+		<Unit filename="Headers/Fisica.h" />
+		<Unit filename="Headers/Mouse.h" />
+		<Unit filename="Headers/Painel_prompt.h" />
+		<Unit filename="Headers/Sistema_Allegro5.0.h" />
+		<Unit filename="Sources/Corpos.cpp" />
+		<Unit filename="Sources/Desenhos_Allegro5.0.cpp" />
+		<Unit filename="Sources/Fisica.cpp" />
+		<Unit filename="Sources/Mouse.cpp" />
+		<Unit filename="Sources/Painel_prompt.cpp" />
+		<Unit filename="Sources/Sistema_Allegro5.0.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

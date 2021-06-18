@@ -5,7 +5,7 @@
 *
 *   Biblioteca que carrega o sistema do Allegro
 *   Classe Display guarda os ponteiros do Allegro que instalamos e criamos.
-*   Facilitando o uso do Allegro atÃ© para outros programas.
+*   Facilitando o uso do Allegro até para outros programas.
 *
 ******************************************************/
 
@@ -24,26 +24,21 @@ class DISPLAY{
 
         unsigned short int FPS = 60.0;
 
-        unsigned int Largura_Tela = 720;
-        unsigned int Altura_Tela  = 720;
-
     public:
         ALLEGRO_EVENT_QUEUE*    _Get_Event_Queue    (void);
         ALLEGRO_DISPLAY*        _Get_Display        (void);
         ALLEGRO_TIMER*          _Get_Timer          (void);
         unsigned short int      _Get_FPS            (void);
-        unsigned int            _Get_Largura_Tela   (void);
-        unsigned int            _Get_Altura_Tela    (void);
 
         void _Push_FPS  (unsigned short int PFPS);
 
         void _Atualizar_Tamanho_Display (unsigned int Largura, unsigned int Altura);
         void _Registrar_Eventos         (void);
 
-        bool _Criar_Sistema_Allegro         (void);
-        void _Destuir_Sistema_Allegro       (void);
-        void _Get_Configurasao_Sistema      (void);
-        void _Push_Configurasao_Sistema     (void);
+        bool _Criar_Sistema_Allegro     (int Largura_Tela, int Altura_Tela);
+        void _Destuir_Sistema_Allegro   (void);
+        void _Get_Configurasao_Sistema  (void);
+
 };
 
 
