@@ -5,8 +5,9 @@
 *
 *   Biblioteca que carrega o sistema do Allegro
 *   Classe Display guarda os ponteiros do Allegro que instalamos e criamos.
-*   Facilitando o uso do Allegro at� para outros programas.
-*
+*   Facilitando o uso do Allegro até para outros programas.
+*   Autor: Ivan Sandro Gomes Vieira Nóbrega
+*   
 ******************************************************/
 
 #include <conio.h>
