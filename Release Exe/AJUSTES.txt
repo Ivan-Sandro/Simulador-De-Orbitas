@@ -1,3 +1,0 @@
-FPS...........: 144
-LARGURA TELA..: 1080
-ALTURA TELA...: 720
