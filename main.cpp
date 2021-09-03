@@ -15,7 +15,8 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "portuguese");
-
+    system("title Painel de controle, Simulador de Orbitas.");
+    
     vector <CORPO> Planetas;
 
     ALLEGRO_EVENT evento;
@@ -26,9 +27,9 @@ int main()
     do
     {
         system("cls");
-        cout << "<<<==== Selecione a opÁ„o que vocÍ deseja prosseguir ====>>>" << endl;
-        cout << "# 1 -> Ler configuraÁ„o salva." << endl;
-        cout << "# 2 -> Criar configuraÁ„o nova." << endl << endl;
+        cout << "<<<==== Selecione a op√ß√£o que voc√™ deseja prosseguir ====>>>" << endl;
+        cout << "# 1 -> Ler configura√ß√£o salva." << endl;
+        cout << "# 2 -> Criar configura√ß√£o nova." << endl << endl;
         cout << "# ";
         cin >> Resposta_Usuario;
         cin.clear();
@@ -40,7 +41,7 @@ int main()
         case 1:
         {
             string Nome_do_Arquivo_Salvo;
-            cout << " -> Lendo configuraÁ„o salva. . ." << endl << endl;
+            cout << " -> Lendo configura√ß√£o salva. . ." << endl << endl;
             cout << ". . .| Por favor, digite o nome do arquivo de texto |. . ." << endl << endl;
             cout << "# ";
             getline(cin, Nome_do_Arquivo_Salvo);
@@ -52,7 +53,7 @@ int main()
 
         case 2:
         {
-            cout << " -> Criando uma configuraÁ„o. . ." << endl << endl;
+            cout << " -> Criando uma configura√ß√£o. . ." << endl << endl;
             Planetas = _Push_Planetas_Nao_Salvos();
         }
         break;
@@ -134,7 +135,7 @@ int main()
         system("cls");
         cout << "<<<==== Deseja salvar os planetas utilizados?[S/N] ====>>>" << endl;
         cout << "# 1 -> Sim." << endl;
-        cout << "# 2 -> N„o." << endl << endl;
+        cout << "# 2 -> N√£o." << endl << endl;
         cout << "# ";
         cin >> Resposta_Usuario;
         fflush(stdin);
@@ -143,7 +144,7 @@ int main()
     if(Resposta_Usuario == 1){
         string Nome_do_Arquivo_a_Ser_Criado;
         cout << endl << endl;
-        cout << "-> Criando arquivo de texto na pasta do execut·vel." << endl << endl;
+        cout << "-> Criando arquivo de texto na pasta do execut√°vel." << endl << endl;
         cout << ". . .| Por favor, digite o nome do arquivo de texto |. . ." << endl << endl;
         cout << "# ";
         getline(cin, Nome_do_Arquivo_a_Ser_Criado);
