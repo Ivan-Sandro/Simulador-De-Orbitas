@@ -139,6 +139,7 @@ int main()
         cout << "# ";
         cin >> Resposta_Usuario;
         fflush(stdin);
+        cin.clear();
     }while(Resposta_Usuario < 1 || Resposta_Usuario > 2);
 
     if(Resposta_Usuario == 1){
