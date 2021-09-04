@@ -66,6 +66,7 @@ int main()
 
 
     Painel._Criar_Sistema_Allegro(1080, 720);
+    al_set_window_title(Painel._Get_Display(), "Simulador de Orbitas, autor: Ivan Sandro Gomes Vieira Nobrega");
     Painel._Get_Configurasao_Sistema();
     Painel._Registrar_Eventos();
 
