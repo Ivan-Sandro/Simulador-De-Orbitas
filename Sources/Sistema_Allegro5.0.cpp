@@ -16,31 +16,34 @@ void _Erro_Box(const char* txt){
 
 void    DISPLAY::_Push_FPS  (unsigned short int PFPS){ FPS = PFPS; }
 
-void DISPLAY::_Atualizar_Tamanho_Display (unsigned int Largura, unsigned int Altura){
-    al_resize_display(Janela, Largura, Altura);
-}
 
-bool DISPLAY::_Criar_Sistema_Allegro(int Largura_Tela, int Altura_Tela){
+
+bool DISPLAY::_Criar_Display(unsigned int Largura_Tela, unsigned int Altura_Tela){
 
     Janela = al_create_display(Largura_Tela, Altura_Tela);
     if(!Janela){
         _Erro_Box("Falha ao crear a janela.");
-        exit(1);
+        return false;
     }
-
-    Fila_Eventos = al_create_event_queue();
-    if(!Fila_Eventos){
-        _Erro_Box("Falha ao instalar a fila de eventos.");
-        exit(1);
-    }
-
+    return true;
+}
+bool DISPLAY::_Criar_Timer(void){
     Timer = al_create_timer( 1.0 / FPS );
     if(!Timer){
         _Erro_Box("Falha ao criar o Timer.");
-        exit(1);
+        return false;
     }
-    return 0;
+    return true;
 }
+bool DISPLAY::_Criar_Fila_Eventos(void){
+    Fila_Eventos = al_create_event_queue();
+    if(!Fila_Eventos){
+        _Erro_Box("Falha ao instalar a fila de eventos.");
+        return false;
+    }
+    return true;
+}
+
 void DISPLAY::_Destuir_Sistema_Allegro(void){
 
     if(Janela)al_destroy_display(Janela);
@@ -102,17 +105,17 @@ bool _Iniciar_Sistema_Allegro(void){
 
     if(!al_init()){
         _Erro_Box("Falha ao iniciar o Allegro.");
-        exit(1);
+        return false;
     }
 
     if(!al_init_primitives_addon()){
         _Erro_Box("Falha ao iniciar os efeitos primitivos.");
-        exit(1);
+        return false;
     }
 
     if(!al_install_mouse()){
         _Erro_Box("Falha ao instalar o mouse.");
-        exit(1);
+        return false;
     }
-    return 0;
+    return true;
 }
