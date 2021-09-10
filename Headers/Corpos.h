@@ -13,18 +13,18 @@
 
 class CORPO{
     private:
-        float   X         = 0, Y      = 0;
-        float   Vel_X     = 0, Vel_Y  = 0;
+        float   X       , Y     ;
+        float   Vel_X   , Vel_Y ;
 
-        float   Massa           = 0;
-        float   Raio            = 0;
-        float   Volume          = 0;
-        float   Densidade       = 0;
-        float   Elasticidade    = 0.0;
+        float   Massa           ;
+        float   Raio            ;
+        float   Volume          ;
+        float   Densidade       ;
+        float   Elasticidade    ;
 
-        unsigned char Cor_R = 0;
-        unsigned char Cor_G = 0;
-        unsigned char Cor_B = 0;
+        unsigned char Cor_R;
+        unsigned char Cor_G;
+        unsigned char Cor_B;
 
 
     public:
