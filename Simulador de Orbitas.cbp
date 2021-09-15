@@ -31,7 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="C:/Program Files/CodeBlocks/MinGW/allegro5/include" />
 		</Compiler>
+		<Linker>
+			<Add option="-Wl,-allow-multiple-definition" />
+			<Add library="C:/Program Files/CodeBlocks/MinGW/allegro5/lib/liballegro_monolith-debug.dll.a" />
+			<Add library="C:/Program Files/CodeBlocks/MinGW/allegro5/lib/liballegro_monolith.dll.a" />
+		</Linker>
 		<Unit filename="Headers/Corpos.h" />
 		<Unit filename="Headers/Desenhos_Allegro5.0.h" />
 		<Unit filename="Headers/Fisica.h" />
